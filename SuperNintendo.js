@@ -491,7 +491,7 @@ a=z;m(n);var U=[null,vc,vc,Js,ys,ns,cs,Tr,Ir,xr,mr,br,Sq,Hq,wq,lq,aq,Rp,Gp,vp,kp
       })
 
       globals.document.addEventListener("keydown", function (e) {
-        if (e.key === "Backquote") {
+        if (e.code === "Backquote") {
           e.preventDefault(); 
           globals.window["SUPERNINTENDO_SIMULATION_SPEED"] = 16;
         }
