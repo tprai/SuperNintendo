@@ -119,7 +119,7 @@
       window.addEventListener("load", function () {
         if (window.top === window.self) {
           container.style.display = "block"
-
+F
           var currentURL = new URL(window.location.href).searchParams
           var demoRequired = currentURL.has("demo")
 
@@ -156,32 +156,32 @@
                   loadText: "LOAD",
                   saveText: "SAVE",
                   player1: {
+                    up: "KeyW",
+                    down: "KeyS",
+                    left: "KeyA",
+                    right: "KeyD",
+                    a: "KeyK",
+                    b: "KeyJ",
+                    x: "KeyL",
+                    y: "KeyU",
+                    l: "KeyI",
+                    r: "KeyO",
+                    start: "Space",
+                    select: "ShiftLeft",
+                  },
+                  player2: {
                     up: "ArrowUp",
                     down: "ArrowDown",
                     left: "ArrowLeft",
                     right: "ArrowRight",
-                    a: "KeyW",
-                    b: "KeyQ",
-                    x: "KeyS",
-                    y: "KeyA",
-                    l: "KeyZ",
-                    r: "KeyX",
+                    a: "KeyG",
+                    b: "KeyF",
+                    x: "KeyH",
+                    y: "KeyR",
+                    l: "KeyT",
+                    r: "KeyY,
                     start: "Enter",
                     select: "ShiftRight",
-                  },
-                  player2: {
-                    up: "KeyI",
-                    down: "KeyK",
-                    left: "KeyJ",
-                    right: "KeyL",
-                    a: "KeyU",
-                    b: "KeyH",
-                    x: "KeyO",
-                    y: "KeyN",
-                    l: "KeyP",
-                    r: "KeyM",
-                    start: "KeyB",
-                    select: "KeyV",
                   },
                   cbStarted: function cbStarted() {
                     pleaseWait.style.display = "none"
