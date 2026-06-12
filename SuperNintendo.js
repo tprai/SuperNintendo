@@ -254,10 +254,10 @@ globals.window.addEventListener("keyup", function(e) {
 
   function buildKeyMap(playerConfig, playerNumber) {
     var defaultKeys = {
-      up: playerNumber != 1 ? "ArrowUp" : "KeyW",
-      down: playerNumber != 1 ? "ArrowDown" : "KeyS",
-      left: playerNumber != 1 ? "ArrowLeft" : "KeyA",
-      right: playerNumber != 1 ? "ArrowRight" : "KeyD",
+      up: playerNumber === 1 ?"KeyW" : "ArrowUp" ,
+      down: playerNumber === 1 ? "KeyS":"ArrowDown" ,
+      left: playerNumber === 1 ? "KeyA":"ArrowLeft" ,
+      right: playerNumber === 1 ? "KeyD":"ArrowRight" ,
       a: playerNumber === 1 ? "KeyK" : "KeyG",
       b: playerNumber === 1 ? "KeyJ" : "KeyF",
       x: playerNumber === 1 ? "KeyL" : "KeyH",
