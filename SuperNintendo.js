@@ -428,13 +428,12 @@ a=z;m(n);var U=[null,vc,vc,Js,ys,ns,cs,Tr,Ir,xr,mr,br,Sq,Hq,wq,lq,aq,Rp,Gp,vp,kp
         globals.window["SUPERNINTENDO_CANVAS_WIDTH"]
       globals.window["SUPERNINTENDO_CANVAS"].height =
         globals.window["SUPERNINTENDO_CANVAS_HEIGHT"]
-      var canvasStyle = globals.window["SUPERNINTENDO_CANVAS"].style
-      canvasStyle.position = "absolute"
-      canvasStyle.top = "50%"
-      canvasStyle.left = "50%"
-      canvasStyle.transform = "translate(-50%, -50%)"
-      canvasStyle.height = "100vh"
-      canvasStyle.width = "calc(100vh / 224 * 256)"
+      globals.window["SUPERNINTENDO_CANVAS"].style.position = "absolute"
+      globals.window["SUPERNINTENDO_CANVAS"].style.top = "50%"
+      globals.window["SUPERNINTENDO_CANVAS"].style.left = "50%"
+      globals.window["SUPERNINTENDO_CANVAS"].style.transform = "translate(-50%, -50%)"
+      globals.window["SUPERNINTENDO_CANVAS"].style.height = "100vh"
+      globals.window["SUPERNINTENDO_CANVAS"].style.width = "calc(100vh/7*8)"
       
       globals.window["SUPERNINTENDO_CANVAS"].addEventListener(
         "contextmenu",
