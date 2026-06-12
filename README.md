@@ -1,6 +1,6 @@
 ## Editor Note
 
-All credit to [github.com.](https://github.com/lrusso). I only changed the controls and added a speed up button (TAB).
+All credit to [github.com/lrusso.](https://github.com/lrusso) I only changed the controls and added a speed up button (TAB).
 
 # Super Nintendo
 
