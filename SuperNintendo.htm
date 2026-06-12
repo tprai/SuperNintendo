@@ -12,6 +12,7 @@
     <meta name="theme-color" content="#000">
     <meta name="description" content="JavaScript Super Nintendo Emulator.">
     <meta name="keywords" content="javascript, super, nintendo, emulator">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
@@ -96,7 +97,7 @@
       <input
         type="file"
         id="romfile-input"
-        accept=".sfc,.smc,application/octet-stream"
+        accept=".sfc,.smc,.zip,application/octet-stream"
       >
     </div>
     <script src="SuperNintendo.min.js"></script>
@@ -200,7 +201,7 @@
           })
 
           romFileInput.addEventListener("change", function (event) {
-            var validExtensions = [".sfc", ".smc"]
+            var validExtensions = [".sfc", ".smc", ".zip"]
             var fileExtension = event.target.files[0].name.toLowerCase()
             var isValid = false
 
@@ -220,10 +221,35 @@
 
             var filereader = new FileReader()
             filereader.addEventListener("load", function () {
+              var fileData = filereader.result
+
+              if (fileExtension.endsWith(".zip")) {
+                JSZip.loadAsync(fileData).then(function (zip) {
+                  var romFile = Object.keys(zip.files).find(function (filename) {
+                    return filename.toLowerCase().endsWith(".sfc") || filename.toLowerCase().endsWith(".smc")
+                  })
+
+                  if (!romFile) {
+                    alert("No valid .sfc or .smc file found inside the zip!")
+                    romFileInput.value = null
+                    container.style.display = "block"
+                    return
+                  }
+
+                  zip.file(romFile).async("arraybuffer").then(function (unzippedData) {
+                    launchEmulator(romFile, unzippedData)
+                  })
+                })
+              } else {
+                launchEmulator(event.target.files[0].name, fileData)
+              }
+            })
+
+            function launchEmulator(fileName, romData) {
               embedSuperNintendo({
                 container: "game",
-                name: event.target.files[0].name,
-                rom: filereader.result,
+                name: fileName,
+               rom: romData,
                 soundEnabled: true,
                 showMobileControls: isMobileDevice(),
                 backText: "BACK",
@@ -263,7 +289,7 @@
                   romFileInput.value = null
                 },
               })
-            })
+            }
 
             filereader.readAsArrayBuffer(event.target.files[0])
           })
