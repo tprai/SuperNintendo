@@ -1,3 +1,7 @@
+## Editor Note
+
+All credit to [github.com.](https://github.com/lrusso). I only changed the controls and added a speed up button (TAB).
+
 # Super Nintendo
 
 A Super Nintendo emulator with mobile compatibility designed for running in pure JavaScript pre-ECMAScript 2015 (no WebAssembly). Simply open the link below, click the red icon, and select a ROM file in `SFC` or `SMC` format from your computer; it will be loaded and booted automatically.
@@ -24,46 +28,46 @@ Examples of loading local and online files can be found [here](https://github.co
 ```js
 embedSuperNintendo({
   container: "game",
-  name: "Super Metroid",
-  rom: romFile,
+  name: gameURL,
+  rom: xhr.response,
   soundEnabled: true,
-  showMobileControls: true,
+  showMobileControls: isMobileDevice(),
   backText: "BACK",
   soundText: "SOUND",
   loadText: "LOAD",
   saveText: "SAVE",
   player1: {
+    up: "KeyW",
+    down: "KeyS",
+    left: "KeyA",
+    right: "KeyD",
+    a: "KeyK",
+    b: "KeyJ",
+    x: "KeyL",
+    y: "KeyU",
+    l: "KeyI",
+    r: "KeyO",
+    start: "Space",
+    select: "ShiftLeft",
+  },
+  player2: {
     up: "ArrowUp",
     down: "ArrowDown",
     left: "ArrowLeft",
     right: "ArrowRight",
-    a: "KeyW",
-    b: "KeyQ",
-    x: "KeyS",
-    y: "KeyA",
-    l: "KeyZ",
-    r: "KeyX",
+    a: "KeyG",
+    b: "KeyF",
+    x: "KeyH",
+    y: "KeyR",
+    l: "KeyT",
+    r: "KeyY",
     start: "Enter",
     select: "ShiftRight",
   },
-  player2: {
-    up: "KeyI",
-    down: "KeyK",
-    left: "KeyJ",
-    right: "KeyL",
-    a: "KeyU",
-    b: "KeyH",
-    x: "KeyO",
-    y: "KeyN",
-    l: "KeyP",
-    r: "KeyM",
-    start: "KeyB",
-    select: "KeyV",
-  },
   cbStarted: function cbStarted() {
-    console.log("Emulator started.")
+    pleaseWait.style.display = "none"
   },
-})
+  })
 ```
 
 | Parameter          |    Type     | Required | Default value | Description                |
@@ -85,9 +89,10 @@ embedSuperNintendo({
 
 | Action          | macOS Shortcut | Windows Shortcut | Safari Shortcut |
 | :-------------- | :------------: | :--------------: | :-------------: |
-| Save state      |  Command + 1   |     Ctrl + 1     |    Ctrl + 1     |
-| Load state      |  Command + 2   |     Ctrl + 2     |    Ctrl + 2     |
-| Toggle sound    |  Command + 3   |     Ctrl + 3     |    Ctrl + 3     |
+| Save state      |  Command + S   |     Ctrl + S     |    Ctrl + S     |
+| Load state      |  Command + Q   |     Ctrl + Q     |    Ctrl + 2Q    |
+| Toggle sound    |  Command + P   |     Ctrl + p     |    Ctrl + P
+|
 | Fullscreen mode |  Command + F   |     Ctrl + F     |    Ctrl + F     |
 | Reset game      |  Command + R   |     Ctrl + R     |    Ctrl + R     |
 
