@@ -233,18 +233,18 @@ a=z;m(n);var U=[null,vc,vc,Js,ys,ns,cs,Tr,Ir,xr,mr,br,Sq,Hq,wq,lq,aq,Rp,Gp,vp,kp
 
   function buildKeyMap(playerConfig, playerNumber) {
     var defaultKeys = {
-      up: playerNumber === 1 ? "ArrowUp" : "KeyI",
-      down: playerNumber === 1 ? "ArrowDown" : "KeyK",
-      left: playerNumber === 1 ? "ArrowLeft" : "KeyJ",
-      right: playerNumber === 1 ? "ArrowRight" : "KeyL",
-      a: playerNumber === 1 ? "KeyA" : "KeyU",
-      b: playerNumber === 1 ? "KeyZ" : "KeyH",
-      x: playerNumber === 1 ? "KeyX" : "KeyO",
-      y: playerNumber === 1 ? "KeyS" : "KeyN",
-      l: playerNumber === 1 ? "KeyD" : "KeyP",
-      r: playerNumber === 1 ? "KeyC" : "KeyM",
-      start: playerNumber === 1 ? "Enter" : "KeyB",
-      select: playerNumber === 1 ? "ShiftLeft" : "KeyV",
+      up: playerNumber != 1 ? "ArrowUp" : "KeyW",
+      down: playerNumber != 1 ? "ArrowDown" : "KeyS",
+      left: playerNumber != 1 ? "ArrowLeft" : "KeyA",
+      right: playerNumber != 1 ? "ArrowRight" : "KeyD",
+      a: playerNumber === 1 ? "KeyK" : "KeyG",
+      b: playerNumber === 1 ? "KeyJ" : "KeyF",
+      x: playerNumber === 1 ? "KeyL" : "KeyH",
+      y: playerNumber === 1 ? "KeyU" : "KeyR",
+      l: playerNumber === 1 ? "KeyI" : "KeyT",
+      r: playerNumber === 1 ? "KeyO" : "KeyY",
+      start: playerNumber === 1 ? "Space" : "Enter",
+      select: playerNumber === 1 ? "ShiftLeft" : "ShiftRight",
     }
 
     var config = playerConfig || defaultKeys
@@ -497,10 +497,10 @@ a=z;m(n);var U=[null,vc,vc,Js,ys,ns,cs,Tr,Ir,xr,mr,br,Sq,Hq,wq,lq,aq,Rp,Gp,vp,kp
           globals.window["updateInputSuperNintendo"](e.code, false)
         }
       })
-
+/*
       globals.window.addEventListener("blur", function () {
         globals.window["SUPERNINTENDO_GAME_RUNNING"] = false
-      })
+      })*/
 
       globals.window.addEventListener("focus", function () {
         globals.window["SUPERNINTENDO_GAME_RUNNING"] = true
