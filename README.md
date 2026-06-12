@@ -1,6 +1,6 @@
 ## Editor Note
 
-All credit to [github.com/lrusso.](https://github.com/lrusso) I only changed the controls and added a speed up function (TAB for 4x, Backquote for 16x).
+All credit to [github.com/lrusso.](https://github.com/lrusso) I only changed the controls and added a speed up function (TAB for 4x, Backquote for 16x). Also you can now upload zip files containing snes files.
 
 # Super Nintendo
 
