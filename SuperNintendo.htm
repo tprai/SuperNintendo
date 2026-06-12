@@ -267,15 +267,20 @@
 
             filereader.readAsArrayBuffer(event.target.files[0])
           })
-
+window.addEventListener('beforeunload', (event) => event.preventDefault());
+          
           document.addEventListener("keydown", function (event) {
             var KEY_CTRL = event.ctrlKey || event.metaKey
-            var KEY_1 = event.code === "Digit1"
-            var KEY_2 = event.code === "Digit2"
-            var KEY_3 = event.code === "Digit3"
+            var KEY_1 = event.code === "KeyS"
+            var KEY_2 = event.code === "KeyQ"
+            var KEY_3 = event.code === "KeyP"
             var KEY_F = event.code === "KeyF"
             var KEY_R = event.code === "KeyR"
+            var KEY_W = event.code === "KeyW"
 
+            if (KEY_CTRL && KEY_W) 
+              event.preventDefault()
+            
             if (KEY_CTRL && KEY_1) {
               event.preventDefault()
               downloadStateSuperNintendo()
